@@ -1,0 +1,25 @@
+{
+  "name": "react-form-page-transition",
+  "version": "1.0.0",
+  "description": "Page transition using forms in React",
+  "main": "index.js",
+  "repository": "https://github.com/yukinoda/react-form-page-transition.git",
+  "author": "yukinoda <16083322+yukinoda@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
