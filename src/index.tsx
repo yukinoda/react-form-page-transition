@@ -1,9 +1,6 @@
-import React from 'react'
+import React from "react";
 
- const FormPageTransition=()=> { 
-  return (
-    <div>
-    </div>
-  )
-}
-export default FormPageTransition
+const FormPageTransition = () => {
+  return <div />;
+};
+export default FormPageTransition;
