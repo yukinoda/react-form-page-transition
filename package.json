@@ -2,27 +2,39 @@
   "name": "react-form-page-transition",
   "version": "1.0.0",
   "description": "Page transition using forms in React",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
   "repository": "https://github.com/yukinoda/react-form-page-transition.git",
   "author": "yukinoda <16083322+yukinoda@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+    "build": "rollup -c"
   },
-  "devDependencies": {
-    "@types/react": "^17.0.19",
-    "@types/react-dom": "^17.0.9",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-typescript-prettier": "^4.2.0",
-    "prettier": "^2.3.2",
+  "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typescript": "^4.3.5"
   },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-typescript-prettier": "^4.2.0",
+    "postcss": "^8.3.6",
+    "prettier": "^2.3.2",
+    "rollup": "^2.56.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-typescript2": "^0.30.0"
+  },
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "files": [
+    "lib"
+  ]
 }

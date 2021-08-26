@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 
 interface FormPageTransitionProps {
   redirectUrl: string;
@@ -9,41 +9,32 @@ interface FormPageTransitionProps {
 
 const FormPageTransition: FC<FormPageTransitionProps> = ({
   redirectUrl,
-  requestMethod,
+  requestMethod = "GET",
   requestBody,
-}): JSX.Element => {
-  const [reqBodyArr, setReqBodyArr] = useState<string[] | null>(null);
+}) => {
+  const reqBodyArr: string[] | null =
+    typeof requestBody !== "undefined" ? Object.keys(requestBody) : null;
 
-  useEffect(() => {
-    if (requestBody) setReqBodyArr(Object.keys(requestBody));
-  }, [requestBody]);
+  const f = document.forms.namedItem("transitionForm");
 
-  useEffect(() => {
-    const f = document.forms.namedItem("transitionForm");
-    if (f) {
-      if (requestMethod === "POST" && reqBodyArr && requestBody) {
-        reqBodyArr.map(name => {
-          f[name].value = requestBody[name];
-          return null;
-        });
-      }
-      f.action = redirectUrl;
-      f.method = requestMethod;
-      f.submit();
+  if (f) {
+    if (requestMethod === "POST" && requestBody && reqBodyArr) {
+      reqBodyArr.map(name => {
+        f[name].value = requestBody[name];
+        return null;
+      });
     }
-  }, [redirectUrl, reqBodyArr, requestBody, requestMethod]);
+    f.action = redirectUrl;
+    f.method = requestMethod;
+    f.submit();
+  }
 
   return (
     <form name="transitionForm">
-      {reqBodyArr &&
-        requestBody &&
+      {requestMethod === "POST" &&
+        reqBodyArr &&
         reqBodyArr.map(name => (
-          <input
-            key={name}
-            type="hidden"
-            name={name}
-            value={requestBody[name]}
-          />
+          <input key={name} type="hidden" name={name} value="" />
         ))}
     </form>
   );

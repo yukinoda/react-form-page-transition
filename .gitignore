@@ -31,3 +31,10 @@ logs
 
 # cache
 .eslintcache
+
+# example page
+/example/node_modules
+/example/build
+
+# generate output
+lib
