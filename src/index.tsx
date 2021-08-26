@@ -1,33 +1,40 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 interface FormPageTransitionProps {
-  redirectUrl: string;
-  requestMethod: "POST" | "GET";
+  redirectUrl?: string;
+  requestMethod?: "POST" | "GET";
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   requestBody?: { [key: string]: any };
 }
 
 const FormPageTransition: FC<FormPageTransitionProps> = ({
-  redirectUrl,
+  redirectUrl = "",
   requestMethod = "GET",
-  requestBody,
+  requestBody = null,
 }) => {
-  const reqBodyArr: string[] | null =
-    typeof requestBody !== "undefined" ? Object.keys(requestBody) : null;
+  const [reqBodyArr, setReqBodyArr] = useState<string[] | null>(null);
 
-  const f = document.forms.namedItem("transitionForm");
+  useEffect(() => {
+    if (requestBody) setReqBodyArr(Object.keys(requestBody));
+  }, [requestBody]);
 
-  if (f) {
-    if (requestMethod === "POST" && requestBody && reqBodyArr) {
-      reqBodyArr.map(name => {
-        f[name].value = requestBody[name];
-        return null;
-      });
+  useEffect(() => {
+    const f = document.forms.namedItem("transitionForm");
+    if (f) {
+      f.action = redirectUrl;
+      f.method = requestMethod;
+
+      if (requestMethod === "POST" && requestBody && reqBodyArr) {
+        reqBodyArr.map(name => {
+          f[name].value = requestBody[name];
+          return null;
+        });
+        f.submit();
+      } else if (requestMethod === "GET") {
+        f.submit();
+      }
     }
-    f.action = redirectUrl;
-    f.method = requestMethod;
-    f.submit();
-  }
+  }, [redirectUrl, reqBodyArr, requestBody, requestMethod]);
 
   return (
     <form name="transitionForm">
