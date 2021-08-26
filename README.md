@@ -52,4 +52,4 @@ export default App;
 | :-------------- | :------- | :------ | :------------------------------------------------------- |
 | `redirectUrl`   | `string` | `""`    | The action of your form                     |
 | `requestMethod` | `string` | `"GET"` | The method of your form                     |
-| `requestBody`   | `object` | `null`  | The values when submitting with POST method |
+| `requestBody`   | `object` | `null`  | The values when submitting with POST method. Only applicable when `requestMethod` is `"POST"` |
