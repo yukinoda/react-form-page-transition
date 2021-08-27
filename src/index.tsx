@@ -24,7 +24,7 @@ const FormPageTransition: FC<FormPageTransitionProps> = ({
       f.action = redirectUrl;
       f.method = requestMethod;
 
-      if (requestMethod === "POST" && requestBody && reqBodyArr) {
+      if (requestBody && reqBodyArr) {
         reqBodyArr.map(name => {
           f[name].value = requestBody[name];
           return null;
@@ -38,8 +38,7 @@ const FormPageTransition: FC<FormPageTransitionProps> = ({
 
   return (
     <form name="transitionForm">
-      {requestMethod === "POST" &&
-        reqBodyArr &&
+      {reqBodyArr &&
         reqBodyArr.map(name => (
           <input key={name} type="hidden" name={name} value="" />
         ))}
