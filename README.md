@@ -1,7 +1,5 @@
 # react-form-page-transition
 
-**STATUS:** working in progress, feedback welcome
-
 `react-form-page-transition` is a React component that enables to make easy request with form to make page transitions. Has Typescript compatibility.
 
 ## Installation
