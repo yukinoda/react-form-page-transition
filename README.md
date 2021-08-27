@@ -48,8 +48,8 @@ export default App;
 
 ## Props
 
-| Property        | Type     | Default | Description                                 |
-| :-------------- | :------- | :------ | :------------------------------------------------------- |
-| `redirectUrl`   | `string` | `""`    | The action of your form                     |
-| `requestMethod` | `string` | `"GET"` | The method of your form                     |
-| `requestBody`   | `object` | `null`  | The values when submitting with POST method. Only applicable when `requestMethod` is `"POST"` |
+| Property        | Type     | Default | Description             |
+| :-------------- | :------- | :------ | :---------------------- |
+| `redirectUrl`   | `string` | `""`    | The action of your form |
+| `requestMethod` | `string` | `"GET"` | The method of your form |
+| `requestBody`   | `object` | `null`  | The values of your form |
