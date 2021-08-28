@@ -46,8 +46,8 @@ export default App;
 
 ## Props
 
-| Property        | Type     | Default | Description             |
-| :-------------- | :------- | :------ | :---------------------- |
-| `redirectUrl`   | `string` | `""`    | The action of your form |
-| `requestMethod` | `string` | `"GET"` | The method of your form |
-| `requestBody`   | `object` | `null`  | The values of your form |
+| Property        | Type     | Default | Description                            |
+| :-------------- | :------- | :------ | :------------------------------------- |
+| `redirectUrl`   | `string` | `""`    | The action attribute value of the form |
+| `requestMethod` | `string` | `"GET"` | The method attribute value of the form |
+| `requestBody`   | `object` | `{}`    | The values of the form                 |
