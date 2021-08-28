@@ -13,5 +13,6 @@ module.exports = {
         semi: true,
       },
     ],
+    "@typescript-eslint/no-explicit-any": "off",
   },
 };
