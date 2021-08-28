@@ -1,6 +1,6 @@
 {
   "name": "react-form-page-transition",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Form page transition in React",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -38,12 +38,13 @@
     "lib"
   ],
   "keywords": [
-    "form",
-    "page transition",
     "react",
+    "typescript",
     "component",
+    "form",
+    "transition",
+    "page-transitions",
     "POST",
-    "GET",
-    "typescript"
+    "GET"
   ]
 }
