@@ -1,6 +1,6 @@
 # react-form-page-transition
 
-`react-form-page-transition` is a React component that enables to make easy <form /> page transitions
+`react-form-page-transition` is a React component that enables to make easy `<form />` page transitions
 
 ## Installation
 
@@ -48,6 +48,6 @@ export default App;
 
 | Property        | Type     | Default | Description                            |
 | :-------------- | :------- | :------ | :------------------------------------- |
-| `redirectUrl`   | `string` | `""`    | The action attribute value of the form |
-| `requestMethod` | `string` | `"GET"` | The method attribute value of the form |
+| `redirectUrl`   | `string` | `""`    | The `action` attribute value of the form |
+| `requestMethod` | `string` | `"GET"` | The `method` attribute value of the form |
 | `requestBody`   | `object` | `{}`    | The values of the form                 |
