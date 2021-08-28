@@ -35,9 +35,9 @@ import FormPageTransition from "react-form-page-transition";
 
 const App = () => (
   <FormPageTransition
-    redirectUrl="redirectUrl" // The action of your form
-    requestMethod="GET" // The method of your form
-    requestBody={{ test: "test", hello: "hello" }} // The values when submitting with POST method
+    redirectUrl="redirectUrl"
+    requestMethod="GET"
+    requestBody={{ hello: "hola", world: "mundo" }}
   />
 );
 
