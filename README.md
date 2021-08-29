@@ -2,6 +2,10 @@
 
 `react-form-page-transition` is a React component that enables to make easy `<form />` page transitions
 
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://img.shields.io/github/license/yukinoda/react-form-page-transition)
+[![npm latest package](https://img.shields.io/npm/v/react-form-page-transition/latest.svg)](https://www.npmjs.com/package/react-form-page-transition)
+[![npm downloads](https://img.shields.io/npm/dt/react-form-page-transition)](https://www.npmjs.com/package/react-form-page-transition)
+
 ## Installation
 
 If you're using `npm`, in the command prompt run:
