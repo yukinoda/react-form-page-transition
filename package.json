@@ -5,7 +5,10 @@
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
-  "repository": "https://github.com/yukinoda/react-form-page-transition.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yukinoda/react-form-page-transition.git"
+  },
   "author": "yukinoda <16083322+yukinoda@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
