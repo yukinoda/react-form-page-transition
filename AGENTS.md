@@ -11,9 +11,7 @@ This is a TypeScript/React library (`react-form-page-transition`) that provides 
 - ESLint with Airbnb TypeScript + Prettier config
 - PostCSS support
 
-## Build, Lint & Test Commands
-
-### Build
+## Build Command
 
 ```bash
 yarn build
@@ -23,15 +21,7 @@ npm run build
 
 Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
 
-### Lint & Format
-
-```bash
-yarn lint
-# Format with Prettier
-yarn prettier --write src/
-```
-
-**Note:** There are no test or lint scripts defined in package.json. Add them if needed.
+**Note:** ESLint and Prettier are installed as dev dependencies but there are no npm scripts defined for them. Configuration files (`.eslintrc.js` and `.prettierrc.js`) are present to guide code style, but linting and formatting are not automated in the current setup.
 
 ## Code Style Guidelines
 
@@ -126,11 +116,7 @@ Configuration extends `airbnb-typescript-prettier`:
 - Prettier integration for formatting consistency
 - Standard Airbnb TypeScript rules
 
-Run ESLint check (if script added):
-
-```bash
-yarn eslint src/
-```
+These are configured but not automated. Developers should configure their IDE to use these rules on save, or run the tools manually as needed.
 
 ## Development Workflow
 
