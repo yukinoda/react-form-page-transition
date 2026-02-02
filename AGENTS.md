@@ -54,7 +54,7 @@ Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
 - **Quotes:** Double quotes only
 - **Semicolons:** Always included
 - **Indent:** 2 spaces (NOT tabs)
-- **Trailing Commas:** Use ES2017+ style (allow trailing commas in multi-line objects, arrays, and function parameters for cleaner diffs and easier refactoring)
+- **Trailing Commas:** ES2017+ style (multi-line objects, arrays, function parameters)
 - **JSX Brackets:** Closing bracket on new line, never same line
 - **Arrow Functions:** Omit parens when single parameter (Prettier auto-fixes)
 
