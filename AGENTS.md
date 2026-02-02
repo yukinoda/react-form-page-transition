@@ -6,10 +6,12 @@ This is a TypeScript/React library (`react-form-page-transition`) that provides 
 
 **Tech Stack:**
 
-- React 17.x with TypeScript
+- React 17.x+ with TypeScript
 - Rollup for bundling (CommonJS + ESM)
 - ESLint with Airbnb TypeScript + Prettier config
 - PostCSS support
+
+**Note:** While the current codebase uses React 17.x and ES5 target, modern best practices recommend React 18+ with ES2017+ target for new development.
 
 ## Build Command
 
@@ -22,6 +24,8 @@ npm run build
 Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
 
 **Note:** ESLint and Prettier are installed as dev dependencies but there are no npm scripts defined for them. Configuration files (`.eslintrc.js` and `.prettierrc.js`) are present to guide code style, but linting and formatting are not automated in the current setup.
+
+**Recommended:** Update `.prettierrc.js` to use `"trailingComma": "all"` for modern best practices, and consider updating `tsconfig.json` target to `"ES2017"` or higher for better performance and modern JavaScript features.
 
 ## Code Style Guidelines
 
@@ -44,14 +48,14 @@ Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
 - **Quotes:** Double quotes only
 - **Semicolons:** Always included
 - **Indent:** 2 spaces (NOT tabs)
-- **Trailing Commas:** ES5 compatible (no trailing commas in function parameters)
+- **Trailing Commas:** Use ES2017+ style (allow trailing commas in multi-line objects, arrays, and function parameters for cleaner diffs and easier refactoring)
 - **JSX Brackets:** Closing bracket on new line, never same line
 - **Arrow Functions:** Omit parens when single parameter (Prettier auto-fixes)
 
 ### TypeScript & Types
 
 - **Strict Mode:** Enabled in tsconfig.json
-- **Syntax:** Use functional components with `FC` (Functional Component) type
+- **Syntax:** Use functional components with explicit props typing (modern approach without `FC` type for better type inference)
 - **Props Interface:** Define inline above component, documented with JSDoc comments
 - **Example:**
 
@@ -61,12 +65,12 @@ Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
     propName?: string;
   }
 
-  const Component: FC<ComponentProps> = ({ propName = "default" }) => {
+  const Component = ({ propName = "default" }: ComponentProps) => {
     // ...
   };
   ```
 
-- **Target:** ES5 output for broad compatibility
+- **Target:** ES2017+ or higher for modern JavaScript features (const/let, async/await, etc.)
 - **Export:** Use `export default` for main component exports
 
 ### Naming Conventions
