@@ -61,7 +61,7 @@ Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
 ### TypeScript & Types
 
 - **Strict Mode:** Enabled in tsconfig.json
-- **Syntax:** ⚠️ **Note:** The current codebase uses the `FC` (Functional Component) type, which is outdated. Modern React TypeScript best practices recommend typing props directly without `FC` to avoid implicit children typing issues. The codebase should be updated to use direct prop typing instead.
+- **Component Typing:** ⚠️ **Note:** The current codebase uses the `FC` (Functional Component) type, which is outdated. Modern React TypeScript best practices recommend typing props directly without `FC` to avoid implicit children typing issues. The codebase should be updated to use direct prop typing instead.
 - **Props Interface:** Define inline above component, documented with JSDoc comments
 - **Current Example (outdated, should be updated):**
 
