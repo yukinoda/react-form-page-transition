@@ -29,9 +29,15 @@ Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
 
 - **Style:** ES modules with default exports where appropriate
 - **Order:** React imports first, then internal component imports, then types
-- **Example:**
+- **Current Example (note: `FC` import is outdated and should be removed):**
   ```typescript
   import React, { FC, useEffect } from "react";
+  import MyComponent from "./components/MyComponent";
+  import { MyType } from "./types";
+  ```
+- **Recommended Modern Approach:**
+  ```typescript
+  import React, { useEffect } from "react";
   import MyComponent from "./components/MyComponent";
   import { MyType } from "./types";
   ```
@@ -51,9 +57,9 @@ Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
 ### TypeScript & Types
 
 - **Strict Mode:** Enabled in tsconfig.json
-- **Syntax:** Use functional components with `FC` (Functional Component) type
+- **Syntax:** ⚠️ **Note:** The current codebase uses the `FC` (Functional Component) type, which is outdated. Modern React TypeScript best practices recommend typing props directly without `FC` to avoid implicit children typing issues. The codebase should be updated to use direct prop typing instead.
 - **Props Interface:** Define inline above component, documented with JSDoc comments
-- **Example:**
+- **Current Example (outdated, should be updated):**
 
   ```typescript
   interface ComponentProps {
@@ -62,6 +68,19 @@ Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
   }
 
   const Component: FC<ComponentProps> = ({ propName = "default" }) => {
+    // ...
+  };
+  ```
+
+- **Recommended Modern Approach:**
+
+  ```typescript
+  interface ComponentProps {
+    /** Description of prop */
+    propName?: string;
+  }
+
+  const Component = ({ propName = "default" }: ComponentProps) => {
     // ...
   };
   ```
