@@ -1,0 +1,161 @@
+# Agent Guidelines for react-form-page-transition
+
+## Project Overview
+
+This is a TypeScript/React library (`react-form-page-transition`) that provides a React component for easy form page transitions. It's built with Rollup and published as an npm package.
+
+**Tech Stack:**
+
+- React 17.x+ with TypeScript
+- Rollup for bundling (CommonJS + ESM)
+- ESLint with Airbnb TypeScript + Prettier config
+- PostCSS support
+
+**Note:** While the current codebase uses React 17.x and ES5 target, modern best practices recommend React 18+ with ES2017+ target for new development.
+
+## Build Command
+
+```bash
+yarn build
+# or
+npm run build
+```
+
+Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
+
+**Note:** ESLint and Prettier are installed as dev dependencies but there are no npm scripts defined for them. Configuration files (`.eslintrc.js` and `.prettierrc.js`) are present to guide code style, but linting and formatting are not automated in the current setup.
+
+**Recommended (future):** If the project upgrades its formatting baseline, consider changing both `.prettierrc.js` and ESLint Prettier settings to `"trailingComma": "all"` together. Also consider updating `tsconfig.json` target to `"ES2017"` or higher for better performance and modern JavaScript features.
+
+## Code Style Guidelines
+
+### Imports & Module Structure
+
+- **Style:** ES modules with default exports where appropriate
+- **Order:** React imports first, then internal component imports, then types
+- **Current Example (note: `FC` import is outdated and should be removed):**
+  ```typescript
+  import React, { FC, useEffect } from "react";
+  import MyComponent from "./components/MyComponent";
+  import { MyType } from "./types";
+  ```
+- **Recommended Modern Approach:**
+  ```typescript
+  import React, { useEffect } from "react";
+  import MyComponent from "./components/MyComponent";
+  import { MyType } from "./types";
+  ```
+- Use double quotes for all strings (NOT single quotes)
+- No unused imports—ESLint enforces this
+
+### Formatting (Prettier)
+
+- **Line Width:** 80 characters max
+- **Quotes:** Double quotes only
+- **Semicolons:** Always included
+- **Indent:** 2 spaces (NOT tabs)
+- **Trailing Commas:** Use the project-enforced setting (`"es5"`) unless the repository formatting config is updated.
+- **JSX Brackets:** Closing bracket on new line, never same line
+- **Arrow Functions:** Omit parens when single parameter (Prettier auto-fixes)
+
+### TypeScript & Types
+
+- **Strict Mode:** Enabled in tsconfig.json
+- **Component Typing:** ⚠️ **Note:** The current codebase uses the `FC` (Functional Component) type, which is outdated. Modern React TypeScript best practices recommend typing props directly without `FC` to avoid implicit children typing issues. The codebase should be updated to use direct prop typing instead.
+- **Props Interface:** Define inline above component, documented with JSDoc comments
+- **Current Example (outdated, should be updated):**
+
+  ```typescript
+  interface ComponentProps {
+    /** Description of prop */
+    propName?: string;
+  }
+
+  const Component: FC<ComponentProps> = ({ propName = "default" }) => {
+    // ...
+  };
+  ```
+
+- **Recommended Modern Approach:**
+
+  ```typescript
+  interface ComponentProps {
+    /** Description of prop */
+    propName?: string;
+  }
+
+  const Component = ({ propName = "default" }: ComponentProps) => {
+    // ...
+  };
+  ```
+
+- **Current Target:** ES5 (as configured in `tsconfig.json`)
+- **Recommended Target (future):** ES2017+ or higher for modern JavaScript features (const/let, async/await, etc.)
+- **Export:** Use `export default` for main component exports
+
+### Naming Conventions
+
+- **Components:** PascalCase (e.g., `FormPageTransition`)
+- **Functions & Variables:** camelCase (e.g., `redirectUrl`, `requestBody`)
+- **Interfaces:** PascalCase with `Props` suffix (e.g., `FormPageTransitionProps`)
+- **Types:** PascalCase or descriptive (e.g., `"POST" | "GET"`)
+
+### Error Handling
+
+- **Type Safety:** Prefer explicit types over `any`, though `@typescript-eslint/no-explicit-any` is disabled
+- **Null Checks:** Use optional chaining (`?.`) and nullish coalescing (`??`)
+- **DOM Access:** Check element existence before manipulation (e.g., `if (f) { ... }`)
+- **Example:**
+  ```typescript
+  const f = document.forms.namedItem("transitionForm");
+  if (f) {
+    // Safe to access f properties
+  }
+  ```
+
+### React Patterns
+
+- **Hooks:** Use built-in hooks (useState, useEffect, etc.)
+- **Dependency Arrays:** Always include all dependencies in useEffect
+- **Key Prop:** Always provide stable keys when rendering lists
+- **Example:**
+  ```typescript
+  {reqBodyArr.map(name => (
+    <input key={name} type="hidden" name={name} value="" />
+  ))}
+  ```
+
+### Files & Directory Structure
+
+- Source code: `/src` directory
+- Components: `/src/components` (one component per file when possible)
+- Index file: `/src/index.tsx` exports the main component
+- Output: `/lib` (gitignored, generated by build)
+
+## ESLint & Prettier Rules
+
+Configuration extends `airbnb-typescript-prettier`:
+
+- No explicit `any` type restrictions (disabled via rules)
+- Prettier integration for formatting consistency
+- Standard Airbnb TypeScript rules
+
+These are configured but not automated. Developers should configure their IDE to use these rules on save, or run the tools manually as needed.
+
+## Development Workflow
+
+1. **Write/modify code** in TypeScript (strict mode enabled)
+2. **Format:** Code should be formatted using Prettier manually or via IDE configuration
+3. **Lint:** ESLint checks import order, naming, unused variables
+4. **Build:** `yarn build` generates output in `/lib`
+5. **Publish:** Package published to npm from `/lib` directory
+
+## Key Project Files
+
+- `src/components/FormPageTransition.tsx` — Main component
+- `src/index.tsx` — Package entry point
+- `tsconfig.json` — TypeScript configuration (ES5 target, strict mode)
+- `.eslintrc.js` — Linting rules
+- `.prettierrc.js` — Code formatting rules
+- `rollup.config.js` — Build configuration
+- `package.json` — Package metadata and scripts
