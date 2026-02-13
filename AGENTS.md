@@ -89,7 +89,8 @@ Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
   };
   ```
 
-- **Target:** ES2017+ or higher for modern JavaScript features (const/let, async/await, etc.)
+- **Current Target:** ES5 (as configured in `tsconfig.json`)
+- **Recommended Target (future):** ES2017+ or higher for modern JavaScript features (const/let, async/await, etc.)
 - **Export:** Use `export default` for main component exports
 
 ### Naming Conventions
@@ -144,7 +145,7 @@ These are configured but not automated. Developers should configure their IDE to
 ## Development Workflow
 
 1. **Write/modify code** in TypeScript (strict mode enabled)
-2. **Format:** Code should auto-format on save or use Prettier
+2. **Format:** Code should be formatted using Prettier manually or via IDE configuration
 3. **Lint:** ESLint checks import order, naming, unused variables
 4. **Build:** `yarn build` generates output in `/lib`
 5. **Publish:** Package published to npm from `/lib` directory
