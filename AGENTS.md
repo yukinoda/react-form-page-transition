@@ -25,7 +25,7 @@ Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
 
 **Note:** ESLint and Prettier are installed as dev dependencies but there are no npm scripts defined for them. Configuration files (`.eslintrc.js` and `.prettierrc.js`) are present to guide code style, but linting and formatting are not automated in the current setup.
 
-**Recommended:** Update `.prettierrc.js` to use `"trailingComma": "all"` for modern best practices, and consider updating `tsconfig.json` target to `"ES2017"` or higher for better performance and modern JavaScript features.
+**Recommended (future):** If the project upgrades its formatting baseline, consider changing both `.prettierrc.js` and ESLint Prettier settings to `"trailingComma": "all"` together. Also consider updating `tsconfig.json` target to `"ES2017"` or higher for better performance and modern JavaScript features.
 
 ## Code Style Guidelines
 
@@ -54,7 +54,7 @@ Outputs to `/lib` directory with CJS, ESM, and TypeScript declaration files.
 - **Quotes:** Double quotes only
 - **Semicolons:** Always included
 - **Indent:** 2 spaces (NOT tabs)
-- **Trailing Commas:** ES2017+ style (multi-line objects, arrays, function parameters)
+- **Trailing Commas:** Use the project-enforced setting (`"es5"`) unless the repository formatting config is updated.
 - **JSX Brackets:** Closing bracket on new line, never same line
 - **Arrow Functions:** Omit parens when single parameter (Prettier auto-fixes)
 
